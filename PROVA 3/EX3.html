@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="UTF-8">
+    <title>Exe3</title>
+    <!--
+        (Exe3) Elabore uma página html com um formulário contendo um campo para RGM e 
+        outro para NOME, e um botão MOSTRAR, abaixo do formulário crie um elemento HTML5 
+        com o id “dados”. Ao clicar no botão você deverá chamar uma função capaz de mostrar os 
+        dados do formulário em um elemento HTML5 com a seguinte formatação CSS feita 
+        através do javascript:
+        a) Família da fonte = verdana
+        b) Cor de fundo = amarelo
+        c) Tamanho da fonte = 50pt
+        d) Alinhamento do texto = centralizado
+        e) Borda = 10 px solida vermelha
+        f) Arredondamento dos cantos da caixa = 30p
+    -->
+    </head>
+    <body>
+        <div id="botao">
+            <label>Nome:</label>
+            <input type="text" id="nome" placeholder="Nome">
+    
+            <label>RGM:</label>
+            <input type="number" id="rgm" placeholder="RMG">
+            
+            <button onclick="cadastrar()" >Cadastrar</button>
+        </div>
+
+
+        <div id="dados">
+            <table>
+                <thead>
+                    <th>Nome:</th>
+                    <th>RGM:</th>
+                </thead>
+                <tbody id="resultado1">
+                    <th></th>
+                    <th></th>
+                </tbody> 
+               
+            </table>
+        </div>
+
+        <script>
+            var inserirDados = []
+
+            function cadastrar (){
+                var auxiliar = {
+                     nome: document.getElementById("nome").value, 
+                     rgm: document.getElementById("rgm").value
+                }
+                inserirDados.push(auxiliar)
+                var corpoTabela = ""
+                for (let i = 0; i < inserirDados.length; i++){
+                     
+                     corpoTabela +="<tr>"+
+                                        "<td>"+inserirDados[i].nome+"</td>"+
+                                        "<td>"+inserirDados[i].rgm+"</td>"+
+                                    "</tr>"
+                }
+                
+                document.getElementById("resultado1").innerHTML = corpoTabela
+                    
+            }   
+            
+            document.getElementById("botao").style.alignItems = "center";
+            document.getElementById("botao").style.backgroundColor = "yellow";
+            document.getElementById("botao").style.fontFamily = "verdana";
+            document.getElementById("botao").style.fontSize= "50pt";
+            document.getElementById("botao").style.border = "10px solid red";
+            document.getElementById("botao").style.borderRadius = "30px";
+
+            
+            document.getElementById("dados").style.alignItems = "center";
+            document.getElementById("dados").style.backgroundColor = "yellow";
+            document.getElementById("dados").style.fontFamily = "verdana";
+            document.getElementById("dados").style.fontSize= "50pt";
+            document.getElementById("dados").style.border = "10px solid red";
+            document.getElementById("dados").style.borderRadius = "30px";
+
+        </script>
+
+        
+    </body>
+</html>
